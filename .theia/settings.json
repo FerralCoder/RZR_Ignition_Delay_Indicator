@@ -1,0 +1,7 @@
+{
+"editor.tabSize": 4,
+"editor.renderWhitespace": "trailing",
+"editor.insertSpaces": true,
+"files.trimTrailingWhitespace": true,
+"arduino.compile.warnings": "All"
+}
