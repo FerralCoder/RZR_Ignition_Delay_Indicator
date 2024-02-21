@@ -1,9 +1,11 @@
 name: Compile Sketch
 
-# The workflow will run on every push and pull request to the repository
 on:
-  - push
-  - pull_request
+  push:
+    branches: ["main"]
+  pull_request:
+  workflow_call:
+  workflow_dispatch:
 
 jobs:
   compile-sketch:
