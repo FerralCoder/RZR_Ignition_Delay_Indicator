@@ -2,7 +2,7 @@
 
 #define DELAY_CONTROL_MULTIPLIER    2
 #define MIN_IGNITION_DELAY_MS       1000
-#define STABILIZATOIN_DELAY_MS      500
+#define STABILIZATION_DELAY_MS      250
 
 void setup()
 {
@@ -17,7 +17,8 @@ void setup()
     analogReference(VDD);
 
     // Insert artificial delay to make sure all signals from the car are stable
-    delay(STABILIZATOIN_DELAY_MS);
+    // Probably not absolutely necessary, but extra insurance to avoid triggering early
+    delay(STABILIZATION_DELAY_MS);
 
     // Ready to sense ignition
     digitalWrite(ReadyLedPin, HIGH);
