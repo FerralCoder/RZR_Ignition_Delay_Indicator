@@ -29,14 +29,14 @@ void loop()
     int  DelayControlVal    = 0;
     long IgnitionDelay_ms   = 0;
 
-    // Read delay control value from potentiometer (range 0 to 1023)
-    DelayControlVal = analogRead(DelayControlPin);
-
-    // Calculate delay
-    IgnitionDelay_ms = MIN_IGNITION_DELAY_MS + (DelayControlVal * DELAY_CONTROL_MULTIPLIER);
-
-    if (digitalRead(IgnitionPin) == HIGH)
+    if (digitalRead(IgnitionPin) == LOW)
     {
+        // Read delay control value from potentiometer (range 0 to 1023)
+        DelayControlVal = analogRead(DelayControlPin);
+
+        // Calculate delay
+        IgnitionDelay_ms = MIN_IGNITION_DELAY_MS + (DelayControlVal * DELAY_CONTROL_MULTIPLIER);
+
         // Start delay
         delay(IgnitionDelay_ms);
 
