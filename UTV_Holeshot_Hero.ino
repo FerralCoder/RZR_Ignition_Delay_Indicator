@@ -1,11 +1,38 @@
+/*++
+
+Licensed under the Apache-2.0 license.
+
+File Name:
+
+    UTV_Holeshot_Hero.ino
+
+Abstract:
+
+    Main code for the UTV Holeshot Hero.
+
+    Current support:    Polaris RZR Pro XP (tested on 2022 model)
+
+--*/
+
 #include "PinAssignments.h"
 
-#define DELAY_CONTROL_MULTIPLIER    2
+// This specifies the minimum indicator delay in ms when the control dial is set at 0.
 #define MIN_IGNITION_DELAY_MS       1000
+
+// This controls the range of delay that is possible. The full range in ms is:
+// MIN_IGNITION_DELAY_MS to (MIN_IGNITION_DELAY_MS + (1023 * DELAY_CONTROL_MULTIPLIER))
+#define DELAY_CONTROL_MULTIPLIER    2
+
+// This is the delay in ms before we enter the ready state and begin the control loop.
+// This delay is intended to ensure that the ignition pin from the car has reached stable state.
+// Probably not absolutely necessary, but this provides extra insurance to avoid triggering early.
 #define STABILIZATION_DELAY_MS      250
+
 
 void setup()
 {
+    // Configure input/output pins
+
     // IN: Ignition wire
     pinMode(IgnitionPin, INPUT);
     // OUT: Ready LED
@@ -16,8 +43,7 @@ void setup()
     pinMode(DelayControlPin, INPUT);
     analogReference(VDD);
 
-    // Insert artificial delay to make sure all signals from the car are stable
-    // Probably not absolutely necessary, but extra insurance to avoid triggering early
+    // Insert delay to make sure the ignition signal from the car is stable
     delay(STABILIZATION_DELAY_MS);
 
     // Ready to sense ignition
@@ -31,7 +57,7 @@ void loop()
 
     if (digitalRead(IgnitionPin) == LOW)
     {
-        // Read delay control value from potentiometer (range 0 to 1023)
+        // Read delay control value from potentiometer (ADC range 0 to 1023)
         DelayControlVal = analogRead(DelayControlPin);
 
         // Calculate delay

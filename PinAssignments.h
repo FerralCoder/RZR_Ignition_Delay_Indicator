@@ -1,3 +1,19 @@
+/*++
+
+Licensed under the Apache-2.0 license.
+
+File Name:
+
+    PinAssignments.h
+
+Abstract:
+
+    Input/output pin assignments for the UTV Holeshot Hero.
+
+    Current boards supported:   Arduino Nano Every
+
+--*/
+
 #ifndef PIN_ASSIGNMENTS_H
 #define PIN_ASSIGNMENTS_H
 
