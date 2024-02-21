@@ -8,7 +8,7 @@ File Name:
 
 Abstract:
 
-    Input/output pin assignments for the UTV Holeshot Hero.
+    Input/output pin assignments for the UTV Holeshot Hero Maker.
 
     Current boards supported:   Arduino Nano Every
 

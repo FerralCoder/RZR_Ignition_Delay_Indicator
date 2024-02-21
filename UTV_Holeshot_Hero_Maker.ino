@@ -4,11 +4,11 @@ Licensed under the Apache-2.0 license.
 
 File Name:
 
-    UTV_Holeshot_Hero.ino
+    UTV_Holeshot_Hero_Maker.ino
 
 Abstract:
 
-    Main code for the UTV Holeshot Hero.
+    Main code for the UTV Holeshot Hero Maker.
 
     Current support:    Polaris RZR Pro XP (tested on 2022 model)
 
