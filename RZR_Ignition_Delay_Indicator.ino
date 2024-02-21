@@ -1,6 +1,6 @@
 #include "PinAssignments.h"
 
-#define DELAY_CONTROL_MULTIPLIER    4
+#define DELAY_CONTROL_MULTIPLIER    2
 #define MIN_IGNITION_DELAY_MS       1000
 #define STABILIZATOIN_DELAY_MS      500
 
