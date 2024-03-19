@@ -33,6 +33,14 @@ void setup()
 {
     // Configure input/output pins
 
+    // Out: Ignition isolation signal
+    pinMode(IgnitionIsolationPin, OUTPUT);
+    // Make sure to set this low at first to gate the incoming Ignition signal. Pin should already
+    // be this way by default. This is needed so we don't have current leaking from IgnitionPin and
+    // partially powering the uC. IgnitionPin drives 12v even when accessory power is off (and
+    // therefore this device is off).
+    digitalWrite(IgnitionIsolationPin, LOW);
+
     // IN: Ignition wire
     pinMode(IgnitionPin, INPUT);
     // OUT: Ready LED
@@ -45,6 +53,9 @@ void setup()
 
     // Insert delay to make sure the ignition signal from the car is stable
     delay(STABILIZATION_DELAY_MS);
+
+    // Now that we are set up, ungate the IgnitionPin so we can sample it
+    digitalWrite(IgnitionIsolationPin, HIGH);
 
     // Ready to sense ignition
     digitalWrite(ReadyLedPin, HIGH);

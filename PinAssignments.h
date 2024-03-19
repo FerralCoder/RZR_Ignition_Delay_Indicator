@@ -19,17 +19,20 @@ Abstract:
 
 // Each of these values corresponds to a pin on the Arduino Nano Every
 enum PinAssignments : uint8_t {
+    // Ignition Isolation (digital output)
+    IgnitionIsolationPin    = 7,
+
     // Ignition (digital input)
-    IgnitionPin     = 8,
+    IgnitionPin             = 8,
 
-    // LED indicating ready to sense ignition (digital out)
-    ReadyLedPin     = 4,
+    // LED indicating ready to sense ignition (digital output)
+    ReadyLedPin             = 4,
 
-    // LED indicating ignition delay has completed. GO!! (digital out)
-    GoLedPin        = 6,
+    // LED indicating ignition delay has completed. GO!! (digital output)
+    GoLedPin                = 6,
 
-    // Delay control (analog in)
-    DelayControlPin = A1
+    // Delay control (analog input)
+    DelayControlPin         = A1
 };
 
 #endif // PIN_ASSIGNMENTS_H
