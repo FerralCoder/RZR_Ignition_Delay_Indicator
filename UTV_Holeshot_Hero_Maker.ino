@@ -17,11 +17,11 @@ Abstract:
 #include "PinAssignments.h"
 
 // This specifies the minimum indicator delay in ms when the control dial is set at 0.
-#define MIN_IGNITION_DELAY_MS       1000
+#define MIN_IGNITION_DELAY_MS       500
 
 // This controls the range of delay that is possible. The full range in ms is:
 // MIN_IGNITION_DELAY_MS to (MIN_IGNITION_DELAY_MS + (1023 * DELAY_CONTROL_MULTIPLIER))
-#define DELAY_CONTROL_MULTIPLIER    2
+#define DELAY_CONTROL_MULTIPLIER    3
 
 // This is the delay in ms before we enter the ready state and begin the control loop.
 // This delay is intended to ensure that the ignition pin from the car has reached stable state.
